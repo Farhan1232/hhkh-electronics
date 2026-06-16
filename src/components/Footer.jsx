@@ -1,5 +1,4 @@
 import { Globe, Mail, MapPin, Phone } from 'lucide-react'
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
 import { SITE, ADDRESS_ONE_LINE } from '../data/site'
 import logo from '../assets/icon.svg'
 import './Footer.css'
@@ -8,13 +7,6 @@ const COLS = [
   { title: 'Shop', links: ['Audio', 'Wearables', 'Smartphones', 'Laptops', 'Gaming'] },
   { title: 'Company', links: ['About Us', 'Reviews', 'FAQ', 'Products', 'Contact'] },
   { title: 'Support', links: ['Help Center', 'Track Order', 'Returns', 'Warranty', 'Delivery'] },
-]
-const SOCIALS = [
-  { Icon: FaWhatsapp, href: `https://wa.me/${SITE.phoneHref.replace('+', '')}` },
-  { Icon: FaFacebookF, href: '#' },
-  { Icon: FaInstagram, href: '#' },
-  { Icon: FaXTwitter, href: '#' },
-  { Icon: FaLinkedinIn, href: '#' },
 ]
 
 export default function Footer() {
@@ -34,11 +26,6 @@ export default function Footer() {
               <li><Mail size={16} /> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><Globe size={16} /> <a href={SITE.url}>{SITE.domain}</a></li>
             </ul>
-            <div className="socials">
-              {SOCIALS.map(({ Icon, href }, i) => (
-                <a href={href} className="social" key={i} aria-label="social"><Icon size={18} /></a>
-              ))}
-            </div>
           </div>
 
           {COLS.map((c) => (

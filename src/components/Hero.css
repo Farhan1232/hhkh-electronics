@@ -129,4 +129,30 @@
   .hero-copy p { margin-left: auto; margin-right: auto; }
   .hero-cta, .hero-trust { justify-content: center; }
   .hero-visual { order: -1; height: 400px; }
+  /* stacked layout: use a softer vertical overlay so the wallpaper
+     stays visible and the text stays readable on narrow screens */
+  .hero {
+    padding: 130px 0 70px;
+    background:
+      linear-gradient(180deg,
+        rgba(245, 250, 247, 0.62) 0%,
+        rgba(245, 250, 247, 0.86) 46%,
+        rgba(245, 250, 247, 0.95) 100%),
+      url('/hero-bg.jpg') top center / cover no-repeat,
+      var(--cream);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 120px 0 60px;
+    background:
+      linear-gradient(180deg,
+        rgba(245, 250, 247, 0.70) 0%,
+        rgba(245, 250, 247, 0.90) 50%,
+        rgba(245, 250, 247, 0.96) 100%),
+      url('/hero-bg.jpg') top center / cover no-repeat,
+      var(--cream);
+  }
+  .hero-visual { height: 330px; }
 }
