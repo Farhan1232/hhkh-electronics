@@ -1,0 +1,179 @@
+/* ===========================================================
+   ElectroMart — Design System
+   Maroon + cream (Foodera-style) mixed with a wallet-style
+   gradient-icon card grid.
+   =========================================================== */
+
+:root {
+  /* Brand — fresh green + greenish-black */
+  --green-50: #e9f9f1;
+  --green-100: #cdf2de;
+  --green-300: #74dca8;
+  --green-500: #1ec27a;   /* vibrant green — main fill */
+  --green-600: #14a868;
+  --green-700: #0c8550;
+  --green-900: #0c1f17;   /* greenish-black — dark sections */
+
+  --on-green: #052b1d;    /* near-black green text on green fills */
+  --green-ink: #0a7a4e;   /* readable green text on light bg */
+  --dark: #0c1f17;        /* greenish-black for dark bands */
+
+  /* Surfaces */
+  --cream: #f5faf7;        /* light mint white */
+  --cream-2: #eaf4ee;      /* light mint alt section */
+  --white: #ffffff;
+  --ink: #0f1f18;          /* greenish-black text */
+  --ink-soft: #43564d;
+  --muted: #71837a;
+  --line: #e1ece6;
+  --line-2: #e4efe9;
+
+  --radius: 22px;
+  --radius-sm: 14px;
+  --maxw: 1240px;
+  --shadow-sm: 0 6px 18px -10px rgba(12, 31, 23, 0.35);
+  --shadow-md: 0 18px 40px -22px rgba(12, 31, 23, 0.45);
+  --shadow-lg: 0 30px 70px -30px rgba(12, 31, 23, 0.5);
+
+  --font: 'Poppins', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+section { position: relative; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green-ink);
+  margin-bottom: 14px;
+}
+
+.section-head { text-align: center; margin-bottom: 46px; }
+.section-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+}
+.section-head p { color: var(--muted); max-width: 560px; margin: 12px auto 0; }
+.accent { color: var(--green-ink); }
+
+/* ===========================================================
+   Buttons
+   =========================================================== */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease), color 0.25s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; }
+
+.btn-primary {
+  background: var(--green-500);
+  color: var(--on-green);
+  box-shadow: 0 14px 26px -12px rgba(24, 193, 114, 0.8);
+}
+.btn-primary:hover {
+  background: var(--green-600);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 34px -12px rgba(24, 193, 114, 0.85);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn-outline:hover {
+  border-color: var(--green-500);
+  color: var(--green-ink);
+  transform: translateY(-3px);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+.btn-ghost:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.btn:active { transform: translateY(0) scale(0.97); }
+
+/* ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.5);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+/* ===========================================================
+   Reveal on scroll + keyframes
+   =========================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(20px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+::selection { background: var(--green-100); color: var(--green-700); }
+
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb {
+  background: var(--green-300);
+  border-radius: 99px;
+  border: 2px solid var(--cream);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--green-500); }

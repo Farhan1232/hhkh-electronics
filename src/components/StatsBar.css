@@ -1,0 +1,38 @@
+.statsbar {
+  background: linear-gradient(120deg, var(--green-500), var(--green-300));
+  color: var(--on-green);
+}
+.statsbar-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 42px 28px;
+}
+.stat {
+  text-align: center;
+  position: relative;
+}
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  height: 46px; width: 1px;
+  background: rgba(5, 43, 29, 0.22);
+}
+.stat strong {
+  display: block;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.stat span {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+@media (max-width: 640px) {
+  .statsbar-inner { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
+  .stat:nth-child(2)::after { display: none; }
+}

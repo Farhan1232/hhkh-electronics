@@ -1,0 +1,40 @@
+.reviews { padding: 96px 0; background: var(--cream-2); }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.review-card {
+  position: relative;
+  background: #fff;
+  border-radius: 22px;
+  padding: 30px 28px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+.review-quote {
+  position: absolute;
+  top: 20px; right: 22px;
+  color: var(--green-50);
+}
+.review-stars { display: flex; gap: 2px; color: #0e9c5f; margin-bottom: 14px; }
+.review-text { color: var(--ink-soft); font-size: 0.96rem; margin-bottom: 22px; position: relative; }
+
+.review-author { display: flex; align-items: center; gap: 13px; }
+.review-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.review-author b { display: block; font-size: 0.95rem; color: var(--ink); }
+.review-author i { font-style: normal; font-size: 0.82rem; color: var(--muted); }

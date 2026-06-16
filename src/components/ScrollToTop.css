@@ -1,0 +1,20 @@
+.to-top {
+  position: fixed;
+  right: 26px; bottom: 26px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--on-green);
+  background: var(--green-500);
+  box-shadow: 0 14px 28px -10px rgba(24, 193, 114, 0.9);
+  opacity: 0;
+  transform: translateY(24px) scale(0.7);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), background 0.25s;
+}
+.to-top.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.to-top:hover { background: var(--green-600); transform: translateY(-4px) scale(1.08); }
