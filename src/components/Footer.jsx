@@ -1,13 +1,7 @@
 import { Globe, Mail, MapPin, Phone } from 'lucide-react'
 import { SITE, ADDRESS_ONE_LINE } from '../data/site'
-import logo from '../assets/icon.svg'
+import logo from '../assets/hhkh-logo.png'
 import './Footer.css'
-
-const COLS = [
-  { title: 'Shop', links: ['Audio', 'Wearables', 'Smartphones', 'Laptops', 'Gaming'] },
-  { title: 'Company', links: ['About Us', 'Reviews', 'FAQ', 'Products', 'Contact'] },
-  { title: 'Support', links: ['Help Center', 'Track Order', 'Returns', 'Warranty', 'Delivery'] },
-]
 
 export default function Footer() {
   return (
@@ -27,22 +21,10 @@ export default function Footer() {
               <li><Globe size={16} /> <a href={SITE.url}>{SITE.domain}</a></li>
             </ul>
           </div>
-
-          {COLS.map((c) => (
-            <div className="footer-col" key={c.title}>
-              <h4>{c.title}</h4>
-              <ul>
-                {c.links.map((l) => <li key={l}><a href="#">{l}</a></li>)}
-              </ul>
-            </div>
-          ))}
         </div>
 
         <div className="footer-bottom">
           <span>© 2026 {SITE.legalName} · Company no. {SITE.companyNumber}. All rights reserved.</span>
-          <div className="footer-legal">
-            <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a>
-          </div>
         </div>
       </div>
     </footer>

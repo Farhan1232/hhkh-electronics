@@ -219,6 +219,17 @@
 }
 
 .wcard-price { font-weight: 800; color: var(--ink); }
+.wcard-moq {
+  margin-top: 8px;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--green-ink, #0e9c5f);
+  background: var(--green-50, #e8f8f0);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
 .wcard-rate {
   display: inline-flex;
   align-items: center;
@@ -237,7 +248,17 @@
   }
   .side-item { width: auto; }
   .side-item em { display: none; }
+  /* the sidebar already has a search box on mobile — hide the duplicate
+     in the results bar so it can't overflow the screen edge */
+  .top-search { display: none; }
+  .shop-bar { margin-bottom: 16px; }
 }
 @media (max-width: 480px) {
-  .top-search { min-width: 0; flex: 1; }
+  .card-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .wcard { padding: 10px; }
+  .wcard-media { height: 130px; }
+  .wcard h3 { font-size: 0.9rem; }
+}
+@media (max-width: 360px) {
+  .card-grid { grid-template-columns: 1fr; }
 }

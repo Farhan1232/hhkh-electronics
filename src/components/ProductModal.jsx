@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import { X, Star, ShoppingCart, Mail, Check } from 'lucide-react'
+import { X, Star, MessageSquare, Mail, Check } from 'lucide-react'
 import { SITE } from '../data/site'
-import Button from './Button'
 import './ProductModal.css'
 
-export default function ProductModal({ product, onClose, onAdd }) {
+export default function ProductModal({ product, onClose }) {
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
     if (product) {
@@ -19,17 +18,19 @@ export default function ProductModal({ product, onClose, onAdd }) {
 
   if (!product) return null
 
-  const mailto =
-    `mailto:${SITE.email}?subject=${encodeURIComponent(`Order request: ${product.name}`)}` +
+  const moq = product.moq || 100
+
+  const enquiryMailto =
+    `mailto:${SITE.email}?subject=${encodeURIComponent(`Enquiry: ${product.name}`)}` +
     `&body=${encodeURIComponent(
       `Hello ${SITE.legalName},\n\n` +
-      `I would like to place an order for the following item:\n\n` +
+      `I would like to enquire about the following item:\n\n` +
       `• Product: ${product.name}\n` +
       `• Category: ${product.cat}\n` +
       `• Price: ${product.price}\n` +
-      `• Quantity: 1\n\n` +
-      `Please confirm availability, total cost and delivery time.\n\n` +
-      `My delivery address:\n\nThank you.`
+      `• Quantity (min. order ${moq} pcs): ${moq}\n\n` +
+      `Please confirm availability, wholesale pricing and delivery time.\n\n` +
+      `My details / delivery address:\n\nThank you.`
     )}`
 
   return (
@@ -75,16 +76,20 @@ export default function ProductModal({ product, onClose, onAdd }) {
               <span className="instock"><Check size={14} /> In stock</span>
             </div>
 
+            <div className="modal-moq">
+              Wholesale only · Minimum order <b>{moq} pcs</b>
+            </div>
+
             <div className="modal-actions">
-              <a href={mailto} className="btn btn-primary">
-                <Mail size={18} /> Place Order
+              <a href={enquiryMailto} className="btn btn-primary">
+                <MessageSquare size={18} /> Enquire
               </a>
-              <Button variant="outline" onClick={() => { onAdd?.(product); onClose() }}>
-                <ShoppingCart size={18} /> Add to Cart
-              </Button>
+              <a href={`mailto:${SITE.email}`} className="btn btn-outline">
+                <Mail size={18} /> Email us
+              </a>
             </div>
             <p className="modal-note">
-              Clicking <b>Place Order</b> emails your request to {SITE.email}
+              Clicking <b>Enquire</b> emails your request to {SITE.email}
             </p>
           </div>
         </div>

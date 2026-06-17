@@ -5,16 +5,13 @@
 }
 .footer .logo-word { color: #fff; }
 .footer-top {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 .footer-brand > p {
   color: rgba(228, 242, 236, 0.7);
   margin: 18px 0 18px;
-  max-width: 280px;
+  max-width: 460px;
   font-size: 0.94rem;
 }
 .footer-contact {
@@ -68,5 +65,3 @@
 .footer-legal { display: flex; gap: 22px; }
 .footer-legal a:hover { color: #fff; }
 
-@media (max-width: 800px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
-@media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }

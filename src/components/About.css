@@ -1,57 +1,11 @@
 .about { padding: 96px 0; background: var(--cream); }
 .about-inner {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
-  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
 }
-
-.about-visual {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 380px;
-}
-.about-blob {
-  position: absolute;
-  width: 340px; height: 340px;
-  border-radius: 44% 56% 52% 48% / 50% 44% 56% 50%;
-  background: linear-gradient(150deg, var(--green-500), var(--green-300));
-  animation: float 8s ease-in-out infinite;
-}
-.about-card {
-  position: relative;
-  z-index: 2;
-  width: 290px;
-  background: #fff;
-  border-radius: 24px;
-  padding: 28px 26px;
-  box-shadow: var(--shadow-lg);
-}
-.about-card-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--green-ink);
-  background: var(--green-50);
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-.about-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--ink); }
-.about-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.about-card li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-}
-.about-card svg { color: var(--green-500); flex-shrink: 0; }
 
 .about-copy h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 800; letter-spacing: -0.6px; }
-.about-copy > p { color: var(--muted); margin-top: 16px; max-width: 560px; }
+.about-copy > p { color: var(--muted); margin-top: 16px; max-width: 720px; }
 
 .about-points {
   display: grid;
@@ -72,10 +26,6 @@
 .about-point b { display: block; font-size: 0.96rem; color: var(--ink); }
 .about-point i { font-style: normal; font-size: 0.84rem; color: var(--muted); }
 
-@media (max-width: 880px) {
-  .about-inner { grid-template-columns: 1fr; gap: 40px; }
-  .about-visual { min-height: 320px; }
-}
 @media (max-width: 520px) {
   .about-points { grid-template-columns: 1fr; }
 }

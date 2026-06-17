@@ -6,7 +6,7 @@ import './Products.css'
 
 const BATCH = 32 // ~8 rows on desktop
 
-export default function Products({ onAdd }) {
+export default function Products() {
   const [active, setActive] = useState('All')
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(null)
@@ -40,7 +40,7 @@ export default function Products({ onAdd }) {
         <div className="section-head reveal">
           <span className="eyebrow">Browse the catalogue</span>
           <h2>Explore our <span className="accent">products</span></h2>
-          <p>Tap any product to see full details, add it to your cart or contact us directly.</p>
+          <p>Tap any product to see full details and send us an enquiry. Wholesale only — minimum order 100 pcs.</p>
         </div>
 
         <div className="shop-layout">
@@ -126,6 +126,7 @@ export default function Products({ onAdd }) {
                         <span className="wcard-rate"><Star size={13} fill="currentColor" /> {p.rating}</span>
                       )}
                     </div>
+                    <span className="wcard-moq">MOQ {p.moq} pcs</span>
                   </article>
                 ))}
               </div>
@@ -146,7 +147,6 @@ export default function Products({ onAdd }) {
       <ProductModal
         product={selected}
         onClose={() => setSelected(null)}
-        onAdd={onAdd}
       />
     </section>
   )

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Phone, Menu, X, ShoppingCart } from 'lucide-react'
+import { Phone, Menu, X } from 'lucide-react'
 import { SITE } from '../data/site'
-import logo from '../assets/icon.svg'
+import logo from '../assets/hhkh-logo.png'
 import './Header.css'
 
 const LINKS = ['Home', 'About Us', 'Products', 'Reviews', 'FAQ', 'Contact']
 
-export default function Header({ cartCount = 0 }) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -37,10 +37,6 @@ export default function Header({ cartCount = 0 }) {
         </nav>
 
         <div className="header-actions">
-          <button className="cart-btn" aria-label="Cart">
-            <ShoppingCart size={20} />
-            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-          </button>
           <a href={`tel:${SITE.phoneHref}`} className="phone-pill">
             <Phone size={16} /> {SITE.phone}
           </a>

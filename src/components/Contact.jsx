@@ -1,17 +1,8 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
 import { SITE, ADDRESS_ONE_LINE } from '../data/site'
 import Button from './Button'
 import './Contact.css'
-
-const SOCIALS = [
-  { Icon: FaWhatsapp, label: 'WhatsApp', href: `https://wa.me/${SITE.phoneHref.replace('+', '')}` },
-  { Icon: FaFacebookF, label: 'Facebook', href: '#' },
-  { Icon: FaInstagram, label: 'Instagram', href: '#' },
-  { Icon: FaXTwitter, label: 'X', href: '#' },
-  { Icon: FaLinkedinIn, label: 'LinkedIn', href: '#' },
-]
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -54,15 +45,7 @@ export default function Contact() {
             </a>
             <div className="contact-row">
               <span className="contact-ico"><MapPin size={20} /></span>
-              <div><i>Visit us</i><b>{ADDRESS_ONE_LINE}</b></div>
-            </div>
-
-            <div className="contact-socials">
-              {SOCIALS.map(({ Icon, label, href }) => (
-                <a key={label} href={href} className="contact-social" aria-label={label} title={label}>
-                  <Icon size={18} />
-                </a>
-              ))}
+              <div><i>Visit us</i><b>{SITE.legalName}, {ADDRESS_ONE_LINE}</b></div>
             </div>
           </div>
 
