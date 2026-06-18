@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Tv, HardDrive, Star } from 'lucide-react'
+import { ArrowRight, Play, Star } from 'lucide-react'
 import Button from './Button'
 import './Hero.css'
 
@@ -55,15 +55,21 @@ export default function Hero() {
             </div>
           </div>
           <div className="mini-card mini-a">
-            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#2193b0,#6dd5ed)' }}>
-              <Tv size={22} />
-            </span>
+            <img
+              className="mini-img"
+              src="https://media.4rgos.it/s/Argos/7796025_R_SET?w=160&h=160&qlt=80&fmt.jpeg.interlaced=true"
+              alt="Samsung 65 inch 4K UHD TV"
+              loading="lazy"
+            />
             <div><b>Samsung 65&Prime; 4K TV</b><i>UHD HDR LED</i></div>
           </div>
           <div className="mini-card mini-b">
-            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#11998e,#38ef7d)' }}>
-              <HardDrive size={22} />
-            </span>
+            <img
+              className="mini-img"
+              src="https://media.4rgos.it/s/Argos/3561869_R_SET?w=160&h=160&qlt=80&fmt.jpeg.interlaced=true"
+              alt="SanDisk Ultra 128GB USB 3.0 flash drive"
+              loading="lazy"
+            />
             <div><b>SanDisk Ultra 128GB</b><i>USB 3.0 flash drive</i></div>
           </div>
           <div className="mini-pill">⚡ Free express shipping</div>
