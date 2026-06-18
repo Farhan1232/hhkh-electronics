@@ -1,6 +1,11 @@
-import { ArrowRight, Play, Watch, Smartphone, Star } from 'lucide-react'
+import { ArrowRight, Play, Tv, HardDrive, Star } from 'lucide-react'
 import Button from './Button'
 import './Hero.css'
+
+const scrollToId = (id) => {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 export default function Hero() {
   return (
@@ -17,8 +22,12 @@ export default function Hero() {
             engineered to perform and priced to love. Free, fast shipping on every order.
           </p>
           <div className="hero-cta">
-            <Button variant="primary">Shop Now <ArrowRight size={18} /></Button>
-            <Button variant="ghost"><Play size={16} /> Learn More</Button>
+            <Button variant="primary" onClick={() => scrollToId('products')}>
+              Shop Now <ArrowRight size={18} />
+            </Button>
+            <Button variant="ghost" onClick={() => scrollToId('about-us')}>
+              <Play size={16} /> Learn More
+            </Button>
           </div>
           <div className="hero-trust">
             <div className="stars">
@@ -34,24 +43,28 @@ export default function Hero() {
           <div className="visual-blob" />
           <div className="showcase-card floating">
             <div className="showcase-icon">
-              <img src="/hero-headphones.jpg" alt="Sony WH-1000XM4 wireless headphones" />
+              <img
+                src="https://media.4rgos.it/s/Argos/7616497_R_SET?w=750&h=750&qlt=80&fmt.jpeg.interlaced=true"
+                alt="Sony WH-1000XM6 wireless headphones"
+                loading="lazy"
+              />
             </div>
             <div className="showcase-info">
-              <span>Sony WH-1000XM4</span>
-              <strong>£199.00</strong>
+              <span>Sony WH-1000XM6</span>
+              <strong>£399.00</strong>
             </div>
           </div>
           <div className="mini-card mini-a">
-            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#f7971e,#ffd200)' }}>
-              <Watch size={22} />
+            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#2193b0,#6dd5ed)' }}>
+              <Tv size={22} />
             </span>
-            <div><b>Pulse Watch 5</b><i>10-day battery</i></div>
+            <div><b>Samsung 65&Prime; 4K TV</b><i>UHD HDR LED</i></div>
           </div>
           <div className="mini-card mini-b">
-            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#2193b0,#6dd5ed)' }}>
-              <Smartphone size={22} />
+            <span className="mini-ico" style={{ background: 'linear-gradient(135deg,#11998e,#38ef7d)' }}>
+              <HardDrive size={22} />
             </span>
-            <div><b>NovaPhone X</b><i>120Hz display</i></div>
+            <div><b>SanDisk Ultra 128GB</b><i>USB 3.0 flash drive</i></div>
           </div>
           <div className="mini-pill">⚡ Free express shipping</div>
         </div>
